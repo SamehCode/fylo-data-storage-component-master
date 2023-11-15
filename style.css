@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;500;600&display=swap');
+:root {
+--Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+--Pale-Blue: hsl(243, 100%, 93%);
+--Grayish-Blue: hsl(229, 7%, 55%);
+--Dark-Blue: hsl(228, 56%, 26%);
+--Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Overpass', sans-serif;
+    background-color: var(--Very-Dark-Blue);
+}
+.container {
+    color: white;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 30px;
+    align-items: flex-end;
+}
+.container > div {
+    background-color: var(--Dark-Blue);
+    padding: 2rem;
+}
+.container .left {
+    border-top-right-radius: 50px 50px;
+    padding-right: 5rem;
+    padding-bottom: 0;
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container .left img.logo {
+    display: block;
+}
+.container .left .files picture {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 1rem;
+}
+.container .left .files picture .image {
+    background-color: var(--Very-Dark-Blue);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .right {
+    border-radius: 6px;
+    width: 450px;
+    position: relative;
+}
+.container .right p {
+    color: var(--Grayish-Blue);
+}
+.container .right p b {
+    color: var(--Pale-Blue);
+}
+.container .right > span {
+    position: absolute;
+    background-color: white;
+    color: var(--Very-Dark-Blue);
+    top: -32px;
+    right: 30px;
+    padding: .8rem .6rem;
+    border-radius: 6px;
+}
+.container .right > span::after {
+    content: '';
+    border: 20px solid transparent;
+    border-top-color: white;
+    border-width: 20px 0px 20px 20px;
+    position: relative;
+    bottom: -49px;
+    right: -10px;
+}
+
+.container .right .bar {
+    background-color: var(--Very-Dark-Blue);
+    width: 100%;
+    height: 15px;
+    border-radius: 50px;
+    margin: .5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+.container .right .bar .prog {
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(to right,  orange, red);
+    border-top-right-radius: 50px 50px;
+    border-bottom-right-radius: 50px 50px;
+}
+.container .right .bar .circle {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    display: block;
+    z-index: 99;
+    position: absolute;
+    right: 0;
+}
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .container .right {
+        width: 300px;
+    }
+    .container .right > span {
+        bottom: -20px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .container .right > span::after {
+        display: none;
+    }
+}
